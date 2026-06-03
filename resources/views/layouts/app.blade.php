@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Anasayfa') - ShopZone</title>
+    <title>@yield('title', 'Anasayfa') - PikselPazar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -84,7 +84,7 @@
 {{-- Navbar --}}
 <nav class="navbar navbar-expand-lg navbar-main">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('home') }}">Shop<span>Zone</span></a>
+        <a class="navbar-brand" href="{{ route('home') }}">Piksel<span>Pazar</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -186,13 +186,13 @@
             </div>
             <div class="col-md-3 mb-4">
                 <h5>İletişim</h5>
-                <p style="font-size:.85rem;"><i class="fas fa-envelope me-2" style="color:var(--primary)"></i>info@shopzone.com</p>
+                <p style="font-size:.85rem;"><i class="fas fa-envelope me-2" style="color:var(--primary)"></i>info@pikselpazar.com</p>
                 <p style="font-size:.85rem;"><i class="fas fa-phone me-2" style="color:var(--primary)"></i>+90 212 000 00 00</p>
                 <p style="font-size:.85rem;"><i class="fas fa-map-marker-alt me-2" style="color:var(--primary)"></i>İstanbul, Türkiye</p>
             </div>
         </div>
         <div class="footer-bottom text-center">
-            &copy; {{ date('Y') }} ShopZone. Tüm hakları saklıdır.
+            &copy; {{ date('Y') }} PikselPazar. Tüm hakları saklıdır.
         </div>
     </div>
 </footer>

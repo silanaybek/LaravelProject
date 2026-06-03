@@ -37,7 +37,7 @@
 @else
 <div style="background:linear-gradient(135deg,#1a1a2e,#e94560);padding:100px 0;text-align:center;color:#fff;">
     <div class="container">
-        <h1 style="font-size:3rem;font-weight:700;">ShopZone'a Hoş Geldiniz</h1>
+        <h1 style="font-size:3rem;font-weight:700;">PikselPazar'a Hoş Geldiniz</h1>
         <p class="lead mb-4">En iyi ürünler, en uygun fiyatlarla</p>
         <a href="{{ route('products.index') }}" class="btn btn-light btn-lg px-5 rounded-pill fw-bold">Alışverişe Başla</a>
     </div>

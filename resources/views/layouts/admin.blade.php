@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Admin Panel') - ShopZone</title>
+    <title>@yield('title', 'Admin Panel') - PikselPazar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@
 
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="{{ route('admin.dashboard') }}" class="brand-link text-center">
-            <span class="brand-text font-weight-bold" style="color:#e94560; font-size:1.4rem;">Shop<span style="color:#fff">Zone</span></span>
+            <span class="brand-text font-weight-bold" style="color:#e94560; font-size:1.4rem;">Piksel<span style="color:#fff">Pazar</span></span>
         </a>
         <div class="sidebar">
             <nav class="mt-2">
@@ -123,7 +123,7 @@
     </div>
 
     <footer class="main-footer text-sm text-muted">
-        <strong>ShopZone</strong> Admin Panel &copy; {{ date('Y') }}
+        <strong>PikselPazar</strong> Admin Panel &copy; {{ date('Y') }}
     </footer>
 </div>
 

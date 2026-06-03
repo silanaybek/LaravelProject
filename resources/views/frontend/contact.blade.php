@@ -24,7 +24,7 @@
             <div class="card border-0 shadow-sm h-100 text-center p-3">
                 <i class="fas fa-envelope fa-2x mb-3" style="color:#e94560;"></i>
                 <h6 class="fw-bold">E-posta</h6>
-                <p class="text-muted small mb-0">info@shopzone.com</p>
+                <p class="text-muted small mb-0">info@pikselpazar.com</p>
             </div>
         </div>
     </div>
