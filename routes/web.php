@@ -12,6 +12,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 // Frontend
@@ -28,10 +29,11 @@ Route::patch('/sepet/{cartItem}', [CartController::class, 'update'])->name('cart
 Route::delete('/sepet/{cartItem}', [CartController::class, 'remove'])->name('cart.remove');
 Route::delete('/sepet', [CartController::class, 'clear'])->name('cart.clear');
 
-// Checkout
+// Checkout + Reviews
 Route::middleware('auth')->group(function () {
     Route::get('/siparis', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/siparis', [CheckoutController::class, 'store'])->name('checkout.store');
+    Route::post('/urunler/{slug}/yorum', [ReviewController::class, 'store'])->name('reviews.store');
 });
 
 // Auth

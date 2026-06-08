@@ -20,8 +20,17 @@
         <div class="card-body d-flex flex-column p-3">
             <a href="{{ route('products.show', $product->slug) }}" class="text-decoration-none text-dark">
                 <small class="text-muted">{{ $product->category->name ?? '' }}</small>
-                <h6 class="mb-2 mt-1" style="font-size:.9rem;font-weight:600;">{{ $product->name }}</h6>
+                <h6 class="mb-1 mt-1" style="font-size:.9rem;font-weight:600;">{{ $product->name }}</h6>
             </a>
+            @php $avg = $product->reviews()->avg('rating'); $cnt = $product->reviews()->count(); @endphp
+            @if($cnt > 0)
+            <div class="d-flex align-items-center gap-1 mb-1">
+                @for($s=1;$s<=5;$s++)
+                    <i class="fas fa-star" style="font-size:.65rem;color:{{ $s<=round($avg)?'#ffc107':'#ddd' }};"></i>
+                @endfor
+                <span style="font-size:.72rem;color:#888;">({{ $cnt }})</span>
+            </div>
+            @endif
             <div class="mt-auto">
                 <div class="mb-2">
                     @if($product->discount_price)
