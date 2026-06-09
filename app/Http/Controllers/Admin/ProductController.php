@@ -14,7 +14,11 @@ class ProductController extends Controller
     {
         $products = Product::with('category')
             ->when($request->search, fn($q) => $q->where('name', 'like', '%'.$request->search.'%'))
-            ->latest()->paginate(15);
+            ->join('categories', 'products.category_id', '=', 'categories.id')
+            ->orderBy('categories.name')
+            ->orderBy('products.name')
+            ->select('products.*')
+            ->paginate(15);
         return view('admin.products.index', compact('products'));
     }
 
