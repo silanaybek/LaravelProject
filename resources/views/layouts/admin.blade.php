@@ -54,7 +54,7 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview">
                     <li class="nav-item">
                         <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p>
+                            <i class="nav-icon fas fa-tachometer-alt"></i><p>Anasayfa</p>
                         </a>
                     </li>
                     <li class="nav-item">
