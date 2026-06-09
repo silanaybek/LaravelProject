@@ -29,7 +29,7 @@
     <div class="row">
         <div class="col-md-5">
             @if($product->image)
-                <img src="{{ asset('storage/'.$product->image) }}" class="img-fluid rounded-3 shadow-sm" alt="{{ $product->name }}" style="width:100%;">
+                <img src="{{ asset($product->image) }}" class="img-fluid rounded-3 shadow-sm" alt="{{ $product->name }}" style="width:100%;">
             @else
                 <div style="height:400px;background:#f0f0f0;border-radius:12px;display:flex;align-items:center;justify-content:center;">
                     <i class="fas fa-image fa-4x text-muted"></i>

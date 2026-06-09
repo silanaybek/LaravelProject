@@ -14,7 +14,7 @@
     <div class="carousel-inner">
         @foreach($sliders as $i => $slider)
         <div class="carousel-item {{ $i===0?'active':'' }}">
-            <img src="{{ asset('storage/'.$slider->image) }}" class="d-block w-100" alt="{{ $slider->title }}">
+            <img src="{{ asset($slider->image) }}" class="d-block w-100" alt="{{ $slider->title }}">
             <div class="carousel-caption">
                 <h2>{{ $slider->title }}</h2>
                 @if($slider->subtitle)<p>{{ $slider->subtitle }}</p>@endif
@@ -53,7 +53,7 @@
         <div class="col-6 col-md-3 col-lg-2">
             <a href="{{ route('products.index', ['category' => $cat->slug]) }}" class="cat-card">
                 @if($cat->image)
-                    <img src="{{ asset('storage/'.$cat->image) }}" alt="{{ $cat->name }}">
+                    <img src="{{ asset($cat->image) }}" alt="{{ $cat->name }}">
                 @else
                     <div style="height:150px;background:linear-gradient(135deg,#e94560,#1a1a2e);display:flex;align-items:center;justify-content:center;">
                         <i class="fas fa-tags fa-3x text-white"></i>

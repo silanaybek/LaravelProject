@@ -8,8 +8,18 @@ class Order extends Model
 {
     protected $fillable = [
         'user_id', 'order_number', 'total_price', 'status',
-        'name', 'phone', 'address', 'city', 'note'
+        'name', 'phone', 'address', 'city', 'note', 'payment_method'
     ];
+
+    public function getPaymentMethodLabelAttribute()
+    {
+        return match($this->payment_method) {
+            'bank_transfer'    => 'Banka Havalesi / EFT',
+            'cash_on_delivery' => 'Kapıda Ödeme',
+            'paypal'           => 'PayPal',
+            default            => $this->payment_method,
+        };
+    }
 
     public function user()
     {

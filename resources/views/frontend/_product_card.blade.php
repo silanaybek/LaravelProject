@@ -2,7 +2,7 @@
     <div class="card product-card h-100">
         <div class="position-relative">
             @if($product->image)
-                <img src="{{ asset('storage/'.$product->image) }}" class="card-img-top" alt="{{ $product->name }}">
+                <img src="{{ asset($product->image) }}" class="card-img-top" alt="{{ $product->name }}">
             @else
                 <div style="height:220px;background:linear-gradient(135deg,#f8f9fa,#e9ecef);display:flex;align-items:center;justify-content:center;">
                     <i class="fas fa-image fa-3x text-muted"></i>

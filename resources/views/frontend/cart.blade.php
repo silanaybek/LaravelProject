@@ -29,7 +29,7 @@
                                 <td>
                                     <div class="d-flex align-items-center gap-3">
                                         @if($item->product->image)
-                                            <img src="{{ asset('storage/'.$item->product->image) }}" width="60" height="60" style="object-fit:cover;border-radius:8px;">
+                                            <img src="{{ asset($item->product->image) }}" width="60" height="60" style="object-fit:cover;border-radius:8px;">
                                         @endif
                                         <div>
                                             <a href="{{ route('products.show', $item->product->slug) }}" class="text-decoration-none text-dark fw-semibold">

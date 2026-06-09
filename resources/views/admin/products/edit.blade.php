@@ -85,7 +85,7 @@
                         <label>Ürün Resmi</label>
                         @if($product->image)
                             <div class="mb-2">
-                                <img src="{{ asset('storage/'.$product->image) }}" height="100" style="border-radius:6px;" id="preview">
+                                <img src="{{ asset($product->image) }}" height="100" style="border-radius:6px;" id="preview">
                             </div>
                         @else
                             <img id="preview" src="" style="display:none;max-height:120px;margin-top:10px;border-radius:6px;">

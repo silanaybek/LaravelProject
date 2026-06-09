@@ -38,9 +38,30 @@
                                    value="{{ old('city') }}" placeholder="İstanbul">
                             @error('city')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
-                        <div class="mb-4">
+                        <div class="mb-3">
                             <label class="form-label">Sipariş Notu</label>
                             <textarea name="note" class="form-control" rows="2" placeholder="Opsiyonel not...">{{ old('note') }}</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Ödeme Yöntemi <span class="text-danger">*</span></label>
+                            <div class="d-flex flex-column gap-2">
+                                <label class="d-flex align-items-center gap-2 border rounded p-3 cursor-pointer" style="cursor:pointer;">
+                                    <input type="radio" name="payment_method" value="bank_transfer" {{ old('payment_method','bank_transfer')=='bank_transfer'?'checked':'' }}>
+                                    <i class="fas fa-university text-primary"></i>
+                                    <span class="fw-semibold">Banka Havalesi / EFT</span>
+                                </label>
+                                <label class="d-flex align-items-center gap-2 border rounded p-3" style="cursor:pointer;">
+                                    <input type="radio" name="payment_method" value="cash_on_delivery" {{ old('payment_method')=='cash_on_delivery'?'checked':'' }}>
+                                    <i class="fas fa-money-bill-wave text-success"></i>
+                                    <span class="fw-semibold">Kapıda Ödeme</span>
+                                </label>
+                                <label class="d-flex align-items-center gap-2 border rounded p-3" style="cursor:pointer;">
+                                    <input type="radio" name="payment_method" value="paypal" {{ old('payment_method')=='paypal'?'checked':'' }}>
+                                    <i class="fab fa-paypal text-info"></i>
+                                    <span class="fw-semibold">PayPal</span>
+                                </label>
+                            </div>
+                            @error('payment_method')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
                         </div>
                         <button type="submit" class="btn btn-danger w-100 py-2 fw-bold rounded-pill fs-5">
                             <i class="fas fa-check-circle me-2"></i>Siparişi Onayla
@@ -57,7 +78,7 @@
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <div class="d-flex align-items-center gap-2">
                             @if($item->product->image)
-                                <img src="{{ asset('storage/'.$item->product->image) }}" width="40" height="40" style="object-fit:cover;border-radius:6px;">
+                                <img src="{{ asset($item->product->image) }}" width="40" height="40" style="object-fit:cover;border-radius:6px;">
                             @endif
                             <div>
                                 <small class="fw-semibold">{{ $item->product->name }}</small>

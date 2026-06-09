@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('address');
             $table->string('city');
             $table->text('note')->nullable();
+            $table->string('payment_method')->default('bank_transfer');
             $table->timestamps();
         });
     }

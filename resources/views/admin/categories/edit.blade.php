@@ -25,7 +25,7 @@
                         <label>Resim</label>
                         @if($category->image)
                             <div class="mb-2">
-                                <img src="{{ asset('storage/'.$category->image) }}" height="80" style="border-radius:6px;">
+                                <img src="{{ asset($category->image) }}" height="80" style="border-radius:6px;">
                             </div>
                         @endif
                         <input type="file" name="image" class="form-control-file" accept="image/*">

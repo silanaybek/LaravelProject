@@ -29,10 +29,11 @@ class CheckoutController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'    => 'required|string|max:255',
-            'phone'   => 'required|string|max:20',
-            'address' => 'required|string',
-            'city'    => 'required|string|max:100',
+            'name'           => 'required|string|max:255',
+            'phone'          => 'required|string|max:20',
+            'address'        => 'required|string',
+            'city'           => 'required|string|max:100',
+            'payment_method' => 'required|in:bank_transfer,cash_on_delivery,paypal',
         ]);
 
         if (!Auth::check()) {
@@ -58,7 +59,8 @@ class CheckoutController extends Controller
             'phone'        => $request->phone,
             'address'      => $request->address,
             'city'         => $request->city,
-            'note'         => $request->note,
+            'note'           => $request->note,
+            'payment_method' => $request->payment_method,
         ]);
 
         foreach ($items as $item) {

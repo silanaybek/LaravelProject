@@ -52,7 +52,10 @@ class ProductController extends Controller
         ];
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('products', 'public');
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images/products'), $filename);
+            $data['image'] = 'images/products/' . $filename;
         }
 
         Product::create($data);
@@ -90,7 +93,10 @@ class ProductController extends Controller
         ];
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('products', 'public');
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images/products'), $filename);
+            $data['image'] = 'images/products/' . $filename;
         }
 
         $product->update($data);

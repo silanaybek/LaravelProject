@@ -22,7 +22,7 @@
                         <tr>
                             <td>
                                 @if($item->product && $item->product->image)
-                                    <img src="{{ asset('storage/'.$item->product->image) }}" width="40" height="40" style="object-fit:cover;border-radius:4px;margin-right:8px;">
+                                    <img src="{{ asset($item->product->image) }}" width="40" height="40" style="object-fit:cover;border-radius:4px;margin-right:8px;">
                                 @endif
                                 {{ $item->product->name ?? 'Ürün Silinmiş' }}
                             </td>
@@ -52,6 +52,8 @@
                 @if($order->note)
                 <p class="mb-1"><i class="fas fa-sticky-note mr-2 text-muted"></i>{{ $order->note }}</p>
                 @endif
+                <hr>
+                <p class="mb-1"><i class="fas fa-credit-card mr-2 text-muted"></i>{{ $order->payment_method_label }}</p>
                 <hr>
                 <p class="mb-0 text-muted"><small>Kayıt: {{ $order->user->email ?? '-' }}</small></p>
                 <p class="mb-0 text-muted"><small>Tarih: {{ $order->created_at->format('d.m.Y H:i') }}</small></p>

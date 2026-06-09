@@ -25,7 +25,7 @@
                     <td>{{ $product->id }}</td>
                     <td>
                         @if($product->image)
-                            <img src="{{ asset('storage/'.$product->image) }}" width="45" height="45" style="object-fit:cover; border-radius:6px;">
+                            <img src="{{ asset($product->image) }}" width="45" height="45" style="object-fit:cover; border-radius:6px;">
                         @else
                             <div style="width:45px;height:45px;background:#eee;border-radius:6px;display:flex;align-items:center;justify-content:center;"><i class="fas fa-image text-muted"></i></div>
                         @endif
