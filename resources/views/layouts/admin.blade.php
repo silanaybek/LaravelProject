@@ -30,12 +30,31 @@
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a></li>
         </ul>
+        <form class="d-none d-md-flex ml-3" method="GET" action="{{ route('admin.products.index') }}" style="width:260px;">
+            <div class="input-group input-group-sm">
+                <input type="text" name="search" class="form-control" placeholder="Ürün, kategori ara..." value="{{ request('search') }}">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </form>
         <ul class="navbar-nav ml-auto">
+            @php $unreadMessages = \App\Models\ContactMessage::whereDate('created_at', '>=', now()->subDays(7))->count(); @endphp
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.contact.index') }}" title="İletişim Mesajları">
+                    <i class="fas fa-envelope"></i>
+                    @if($unreadMessages > 0)
+                    <span class="badge badge-danger navbar-badge">{{ $unreadMessages }}</span>
+                    @endif
+                </a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="fas fa-user-circle fa-lg"></i> {{ auth()->user()->name }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a href="{{ route('admin.settings.index') }}" class="dropdown-item"><i class="fas fa-cog mr-2"></i>Ayarlar</a>
+                    <div class="dropdown-divider"></div>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="dropdown-item"><i class="fas fa-sign-out-alt mr-2"></i>Çıkış Yap</button>
@@ -73,11 +92,31 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('admin.reviews.index') }}" class="nav-link {{ request()->routeIs('admin.reviews.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-star"></i><p>Yorumlar</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('admin.users.index') }}" class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-users"></i><p>Kullanıcılar</p>
                         </a>
                     </li>
-                    <li class="nav-item mt-3">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.contact.index') }}" class="nav-link {{ request()->routeIs('admin.contact.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-envelope"></i><p>İletişim Mesajları</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.faqs.index') }}" class="nav-link {{ request()->routeIs('admin.faqs.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-question-circle"></i><p>SSS</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.settings.index') }}" class="nav-link {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-cog"></i><p>Ayarlar</p>
+                        </a>
+                    </li>
+                    <li class="nav-item mt-2" style="border-top:1px solid #2d2d4e;padding-top:8px;">
                         <a href="{{ route('home') }}" class="nav-link" target="_blank">
                             <i class="nav-icon fas fa-store"></i><p>Siteyi Görüntüle</p>
                         </a>
