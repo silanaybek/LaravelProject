@@ -12,8 +12,7 @@ PikselPazar, **Laravel 12** ve **PHP 8.2** ile geliştirilmiş çok kategorili b
 | **Öğrenci No** | 20222022413 |
 | **Üniversite** | İstanbul Nişantaşı Üniversitesi |
 | **Bölüm** | Yazılım Mühendisliği |
-| **Ders** | ESOF302 – Advanced Web Programming |
-| **Öğretim Üyesi** | Doç. Dr. Yüksel Çelik |
+
 
 ---
 
