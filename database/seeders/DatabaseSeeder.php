@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name'     => 'Test Kullanıcı',
-            'email'    => 'user@shopzone.com',
+            'email'    => 'user@pikselpazar.com',
             'password' => bcrypt('user123'),
             'role'     => 'user',
         ]);
