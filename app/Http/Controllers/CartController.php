@@ -30,14 +30,23 @@ class CartController extends Controller
 
         $product = Product::findOrFail($request->product_id);
 
+        if ($product->sizes && count($product->sizes) > 0 && !$request->size) {
+            return back()->with('error', 'Lütfen bir beden seçin.');
+        }
+
         $item = CartItem::firstOrCreate(
-            ['session_id' => $this->sessionId(), 'product_id' => $product->id],
+            [
+                'session_id' => $this->sessionId(),
+                'product_id' => $product->id,
+                'size'       => $request->size ?? null,
+            ],
             ['quantity' => 0]
         );
 
         $item->increment('quantity', $request->input('quantity', 1));
 
-        return back()->with('success', $product->name . ' sepete eklendi.');
+        $sizeLabel = $request->size ? ' (Beden: ' . $request->size . ')' : '';
+        return back()->with('success', $product->name . $sizeLabel . ' sepete eklendi.');
     }
 
     public function update(Request $request, CartItem $cartItem)

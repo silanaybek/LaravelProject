@@ -79,16 +79,32 @@
             </div>
 
             @if($product->stock > 0)
-            <form method="POST" action="{{ route('cart.add') }}" class="d-flex gap-3 align-items-center">
+            <form method="POST" action="{{ route('cart.add') }}">
                 @csrf
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
-                <div class="input-group" style="width:130px;">
-                    <span class="input-group-text">Adet</span>
-                    <input type="number" name="quantity" class="form-control" value="1" min="1" max="{{ $product->stock }}">
+
+                @if($product->sizes && count($product->sizes) > 0)
+                <div class="mb-3">
+                    <label class="fw-semibold mb-2 d-block">Beden Seçin:</label>
+                    <div class="d-flex gap-2 flex-wrap">
+                        @foreach($product->sizes as $size)
+                        <input type="radio" name="size" id="size_{{ $size }}" value="{{ $size }}" class="btn-check" required>
+                        <label for="size_{{ $size }}" class="btn btn-outline-secondary fw-semibold" style="min-width:52px;">{{ $size }}</label>
+                        @endforeach
+                    </div>
+                    @error('size')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
                 </div>
-                <button type="submit" class="btn btn-lg px-4 fw-bold" style="background:#e94560;color:#fff;border:none;border-radius:10px;">
-                    <i class="fas fa-cart-plus me-2"></i>Sepete Ekle
-                </button>
+                @endif
+
+                <div class="d-flex gap-3 align-items-center">
+                    <div class="input-group" style="width:130px;">
+                        <span class="input-group-text">Adet</span>
+                        <input type="number" name="quantity" class="form-control" value="1" min="1" max="{{ $product->stock }}">
+                    </div>
+                    <button type="submit" class="btn btn-lg px-4 fw-bold" style="background:#e94560;color:#fff;border:none;border-radius:10px;">
+                        <i class="fas fa-cart-plus me-2"></i>Sepete Ekle
+                    </button>
+                </div>
             </form>
             @endif
         </div>

@@ -59,6 +59,28 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group" id="sizes-group" style="display:none;">
+                        <label>Beden Seçenekleri</label>
+                        <div>
+                            @php $clothingSizes = ['XS','S','M','L','XL','XXL']; $shoeSizes = ['36','37','38','39','40','41','42','43','44']; $currentSizes = old('sizes', $product->sizes ?? []); @endphp
+                            <p class="text-muted small mb-1">Giyim Bedenleri:</p>
+                            @foreach($clothingSizes as $sz)
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" class="custom-control-input" id="sz_{{ $sz }}" name="sizes[]" value="{{ $sz }}" {{ in_array($sz, $currentSizes) ? 'checked' : '' }}>
+                                <label class="custom-control-label" for="sz_{{ $sz }}">{{ $sz }}</label>
+                            </div>
+                            @endforeach
+                            <div class="mt-2">
+                                <p class="text-muted small mb-1">Ayakkabı Numaraları:</p>
+                                @foreach($shoeSizes as $sz)
+                                <div class="custom-control custom-checkbox custom-control-inline">
+                                    <input type="checkbox" class="custom-control-input" id="sz_shoe_{{ $sz }}" name="sizes[]" value="{{ $sz }}" {{ in_array($sz, $currentSizes) ? 'checked' : '' }}>
+                                    <label class="custom-control-label" for="sz_shoe_{{ $sz }}">{{ $sz }}</label>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label>Ürün Resmi</label>
                         @if($product->image)
@@ -108,5 +130,14 @@ function previewImage(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+document.addEventListener('DOMContentLoaded', function() {
+    var catSelect = document.querySelector('select[name="category_id"]');
+    function toggleSizes() {
+        var val = catSelect.value;
+        document.getElementById('sizes-group').style.display = (val == 2) ? 'block' : 'none';
+    }
+    catSelect.addEventListener('change', toggleSizes);
+    toggleSizes();
+});
 </script>
 @endpush

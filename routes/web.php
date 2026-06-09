@@ -16,7 +16,12 @@ use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 // Frontend
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    if (auth()->check() && auth()->user()->role === 'admin') {
+        return redirect()->route('admin.dashboard');
+    }
+    return app(HomeController::class)->index(request());
+})->name('home');
 Route::get('/urunler', [ProductController::class, 'index'])->name('products.index');
 Route::get('/urunler/{slug}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/iletisim', [ContactController::class, 'index'])->name('contact');

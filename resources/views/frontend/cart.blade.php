@@ -35,6 +35,9 @@
                                             <a href="{{ route('products.show', $item->product->slug) }}" class="text-decoration-none text-dark fw-semibold">
                                                 {{ $item->product->name }}
                                             </a>
+                                            @if($item->size)
+                                            <div class="small text-muted">Beden: <span class="badge bg-secondary">{{ $item->size }}</span></div>
+                                            @endif
                                         </div>
                                     </div>
                                 </td>

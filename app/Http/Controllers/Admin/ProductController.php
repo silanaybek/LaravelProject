@@ -40,6 +40,7 @@ class ProductController extends Controller
             'price'          => $request->price,
             'discount_price' => $request->discount_price ?: null,
             'stock'          => $request->stock,
+            'sizes'          => $request->input('sizes') ?: null,
             'featured'       => $request->boolean('featured'),
             'status'         => $request->boolean('status', true),
         ];
@@ -77,6 +78,7 @@ class ProductController extends Controller
             'price'          => $request->price,
             'discount_price' => $request->discount_price ?: null,
             'stock'          => $request->stock,
+            'sizes'          => $request->input('sizes') ?: null,
             'featured'       => $request->boolean('featured'),
             'status'         => $request->boolean('status', true),
         ];
