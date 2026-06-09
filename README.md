@@ -1,59 +1,136 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🛒 PikselPazar
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+PikselPazar, **Laravel 12** ve **PHP 8.2** ile geliştirilmiş çok kategorili bir e-ticaret web uygulamasıdır. Ziyaretçiler ürünleri kategorilere göre inceleyebilir, arayabilir, sepete ekleyip sipariş verebilir ve yorum yapabilir. Yönetici paneli üzerinden ürün, kategori, sipariş, kullanıcı, yorum ve site ayarları yönetilir.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 👩‍💻 Proje Bilgileri
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+| | |
+|---|---|
+| **Geliştiren** | Şilan Aybek |
+| **Öğrenci No** | 20222022413 |
+| **Üniversite** | İstanbul Nişantaşı Üniversitesi |
+| **Bölüm** | Yazılım Mühendisliği |
+| **Ders** | ESOF302 – Advanced Web Programming |
+| **Öğretim Üyesi** | Doç. Dr. Yüksel Çelik |
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## ✨ Özellikler
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Müşteri (Frontend)
+- Kullanıcı kayıt, giriş ve çıkış işlemleri
+- Kategoriye göre ürün listeleme ve anahtar kelimeyle arama
+- Fiyata göre sıralama (artan / azalan)
+- Ürün detay sayfası ve benzer ürün önerileri
+- Beden seçimi ve indirimli fiyat desteği
+- Oturum tabanlı alışveriş sepeti (ekle / güncelle / çıkar / temizle)
+- Sipariş oluşturma ve **ödeme yöntemi seçimi** (Kapıda Ödeme, Banka Havalesi / EFT, Kredi Kartı)
+- **Siparişlerim** sayfası ile geçmiş siparişleri ve durumlarını takip etme
+- Ürünlere yorum ve puan verme
+- İletişim formu
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Yönetici (Admin Panel)
+- İstatistikli kontrol paneli (toplam sipariş, gelir, ürün, kullanıcı sayıları)
+- Ürün yönetimi (CRUD)
+- Kategori yönetimi (CRUD)
+- Sipariş yönetimi: listeleme, durum filtreleme, durum güncelleme ve detay görüntüleme
+- Kullanıcı yönetimi
+- Yorum yönetimi
+- İletişim mesajları
+- SSS (Sık Sorulan Sorular) ve site ayarları yönetimi
+- Rol tabanlı erişim (`user` / `admin`)
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🧰 Kullanılan Teknolojiler
 
-### Premium Partners
+| Katman | Teknoloji |
+|--------|-----------|
+| Backend | Laravel 12, PHP 8.2 |
+| Veritabanı | MySQL |
+| Frontend | Blade, Bootstrap 5 |
+| Admin Panel | AdminLTE 3 |
+| İkonlar | Font Awesome 6 |
+| Derleme | Vite |
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## ⚙️ Kurulum
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Projeyi yerel ortamda çalıştırmak için aşağıdaki adımları izleyin:
 
-## Code of Conduct
+```bash
+# 1. Projeyi klonla
+git clone https://github.com/silanaybek/PikselPazar-laravel-.git
+cd PikselPazar-laravel-
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# 2. PHP bağımlılıklarını yükle
+composer install
 
-## Security Vulnerabilities
+# 3. Arayüz bağımlılıklarını yükle
+npm install
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# 4. Ortam dosyasını oluştur
+cp .env.example .env
+php artisan key:generate
+```
 
-## License
+`.env` dosyasındaki veritabanı bilgilerini kendi ortamına göre düzenle:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=pikselpazar
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+```bash
+# 5. Tabloları oluştur ve örnek verileri ekle
+php artisan migrate --seed
+
+# 6. Yüklenen görseller için depolama bağlantısını oluştur
+php artisan storage:link
+
+# 7. Arayüzü derle ve uygulamayı başlat
+npm run dev
+php artisan serve
+```
+
+Uygulama varsayılan olarak `http://127.0.0.1:8000` adresinde çalışır.
+
+---
+
+## 👤 Örnek Hesaplar
+
+`php artisan migrate --seed` komutu aşağıdaki örnek hesapları oluşturur:
+
+| Rol | E-posta | Şifre |
+|-----|---------|-------|
+| Yönetici | admin@pikselpazar.com | (seeder içinde belirlenir) |
+| Kullanıcı | user@pikselpazar.com | (seeder içinde belirlenir) |
+
+> ⚠️ **Güvenlik notu:** Gerçek bir ortama yüklemeden önce `database/seeders/DatabaseSeeder.php` içindeki örnek e-posta ve şifreleri mutlaka değiştir. Şifreleri herkese açık bir depoya gerçek haliyle yazma.
+
+---
+
+## 📂 Proje Yapısı (özet)
+
+```
+app/Http/Controllers      # Frontend ve Admin controller'ları
+app/Models                # Eloquent modelleri (Product, Order, CartItem, ...)
+database/migrations       # Veritabanı tablo tanımları
+database/seeders          # Örnek veri üreticileri
+resources/views/frontend  # Müşteri arayüzü
+resources/views/admin     # Yönetici paneli
+routes/web.php            # Uygulama rotaları
+```
+
+---
+
+## 📝 Lisans
+
+Bu proje eğitim amaçlı geliştirilmiştir.

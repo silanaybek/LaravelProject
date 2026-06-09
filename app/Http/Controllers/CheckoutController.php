@@ -70,6 +70,7 @@ class CheckoutController extends Controller
                 'quantity'   => $item->quantity,
                 'price'      => $item->product->discount_price ?? $item->product->price,
             ]);
+            $item->product->decrement('stock', $item->quantity);
         }
 
         CartItem::where('session_id', session()->getId())->delete();

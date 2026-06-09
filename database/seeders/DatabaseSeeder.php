@@ -17,15 +17,15 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'name'     => 'Admin',
-            'email'    => 'silannaybekk@gmail.com',
-            'password' => bcrypt('silan1234'),
+            'email'    => env('ADMIN_EMAIL', 'admin@pikselpazar.com'),
+            'password' => bcrypt(env('ADMIN_PASSWORD', 'password')),
             'role'     => 'admin',
         ]);
 
         User::create([
             'name'     => 'Test Kullanıcı',
-            'email'    => 'user@pikselpazar.com',
-            'password' => bcrypt('user123'),
+            'email'    => env('USER_EMAIL', 'user@pikselpazar.com'),
+            'password' => bcrypt(env('USER_PASSWORD', 'password')),
             'role'     => 'user',
         ]);
 

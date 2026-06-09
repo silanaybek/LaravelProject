@@ -112,6 +112,8 @@
                         <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}"><i class="fas fa-cogs me-2"></i>Admin Panel</a></li>
                         <li><hr class="dropdown-divider"></li>
                         @endif
+                        <li><a class="dropdown-item" href="{{ route('orders.index') }}"><i class="fas fa-box me-2"></i>Siparişlerim</a></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

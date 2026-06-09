@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -42,6 +43,8 @@ Route::delete('/sepet', [CartController::class, 'clear'])->name('cart.clear');
 Route::middleware('auth')->group(function () {
     Route::get('/siparis', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/siparis', [CheckoutController::class, 'store'])->name('checkout.store');
+    Route::get('/siparislerim', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/siparislerim/{order}', [OrderController::class, 'show'])->name('orders.show');
     Route::post('/urunler/{slug}/yorum', [ReviewController::class, 'store'])->name('reviews.store');
 });
 

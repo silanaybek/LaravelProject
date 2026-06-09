@@ -30,6 +30,10 @@ class CartController extends Controller
 
         $product = Product::findOrFail($request->product_id);
 
+        if ($product->stock <= 0) {
+            return back()->with('error', $product->name . ' stokta yok.');
+        }
+
         if ($product->sizes && count($product->sizes) > 0 && !$request->size) {
             return back()->with('error', 'Lütfen bir beden seçin.');
         }
@@ -43,7 +47,13 @@ class CartController extends Controller
             ['quantity' => 0]
         );
 
-        $item->increment('quantity', $request->input('quantity', 1));
+        $addQty = $request->input('quantity', 1);
+
+        if ($item->quantity + $addQty > $product->stock) {
+            return back()->with('error', 'Stokta yalnızca ' . $product->stock . ' adet var.');
+        }
+
+        $item->increment('quantity', $addQty);
 
         $sizeLabel = $request->size ? ' (Beden: ' . $request->size . ')' : '';
         return back()->with('success', $product->name . $sizeLabel . ' sepete eklendi.');
