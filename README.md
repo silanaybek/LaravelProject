@@ -25,8 +25,8 @@ Laravel 12, PHP 8.2, MySQL, Blade, Bootstrap 5, AdminLTE 3
 ## Kurulum
 
 ```bash
-git clone https://github.com/silanaybek/PikselPazar-laravel-.git
-cd PikselPazar-laravel-
+git clone https://github.com/silanaybek/LaravelProject.git
+cd LaravelProject
 
 composer install
 npm install
